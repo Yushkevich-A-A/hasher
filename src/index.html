@@ -5,7 +5,47 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  <div class="widget-wrapper">
+    <div class="widget">
+      <div class="block-hasher">
+        <div class="block-hasher-input">
+          <h1 class="block-hasher_title">Hasher</h1>
+          <div class="block-input-file">
+            <div class="block-input">
+              <input type="file" class="input">
+            </div>
+            <div class="file-wrapper">
+              <p class="file-wrapper_text">Drop file here</p>
+              <p class="file-wrapper_text">or</p>
+              <p class="file-wrapper_text">Click to select</p>
+            </div>
+          </div>
+        </div>
+        <div class="block-hasher-mode">
+          <div class="block-mode-info">
+            <span class="block-hasher-algorithm">Hash algorithm:</span>
+            <div class="selected-mode">MD5</div>
+          </div>
+          <ul class="mode-list disable">
+            <li class="mode-item">MD5</li>
+            <li class="mode-item">SHA1</li>
+            <li class="mode-item">SHA256</li>
+            <li class="mode-item">SHA512</li>
+          </ul>
+        </div>
+      </div>
+      <div class="block-calculated-hash">
+        <h2 class="block-calculated-hash_title">
+          Calculated Hash
+        </h2>
+        <div class="block-calculated-hash-result">
+          XXXXXXXXXXXXXXXX
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

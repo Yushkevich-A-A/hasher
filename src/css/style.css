@@ -16,6 +16,89 @@ body {
   background-image: url('./../image/patternbg.png');
 }
 
+.widget-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.widget {
+  width: 500px;
+  margin-top: 20px;
+}
+
+.block-hasher {
+  background-color: #fff;
+  border: 1px solid #818181;
+  border-radius: 15px;
+  padding: 20px 40px;
+}
+
+.block-hasher_title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.block-input-file {
+  position: relative;
+}
+
+.block-input {
+  padding: 20px;
+  height: 200px;
+}
+
+.file-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #818181;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.block-hasher-mode {
+  position: relative;
+}
+
+.block-mode-info {
+  margin-top: 15px;
+  display: flex;
+}
+
+.selected-mode {
+  margin-left: 10px;
+}
+
+.mode-list {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #818181;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
+
+.mode-item:nth-child(n + 2) {
+  margin-top: 5px;
+}
+
+.block-calculated-hash_title,
+.block-calculated-hash-result {
+  font-size: 20px;
+  margin-top: 30px;
+  text-align: center;
+}
+
 .disable {
   display: none;
 }
