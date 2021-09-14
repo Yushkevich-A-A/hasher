@@ -32,14 +32,14 @@ module.exports = {
         "class-methods-use-this": "off",
         "consistent-return": "off",
         "no-undef": "off",
-        "no-param-reassign": "off",
-        "overrides":[
-            {
-                "files":["*.worker.js"],
-                "rules":{
-                    "no-restricted-globals":noRestrictedGlobalsWorker,
-                }
+        "no-param-reassign": "off"
+    },
+    "overrides":[
+        {
+            "files":["*.worker.js"],
+            "rules":{
+                "no-restricted-globals":noRestrictedGlobalsWorker,
             }
-        ]
-    }
+        }
+    ]
 }
