@@ -1,18 +1,58 @@
 import crypto from 'crypto-js';
 
-let mode = 'MD5';
+let mode = 'md5';
+let wordArray = null;
 
 self.addEventListener('message', (e) => {
-    const file = e.data;
+    if (e.data.type !== 'file' && wordArray === null) {
+        mode = e.data.mode;
+        self.postMessage({ type: 'error', message: 'Emply file'});
+        return;
+    }
 
-    const reader = new FileReader();
+    if (e.data.type === 'file') {
+        const file = e.data.file;
 
-    reader.addEventListener('load', () => {
+        const reader = new FileReader();
 
-        const wordArray = crypto.lib.WordArray.create(reader.result);
-        const hash = crypto.MD5(wordArray).toString(crypto.enc.Hex);
+        reader.addEventListener('load', () => {
+
+            wordArray = crypto.lib.WordArray.create(reader.result);
+            console.log(wordArray);
+            const hash = calculateHash(mode, wordArray);
+            console.log(hash);
+            self.postMessage(hash);
+        })
+
+        reader.readAsArrayBuffer(file);
+    }
+
+    if (e.data.type === 'mode') {
+        mode = e.data.mode;
+        const hash = calculateHash(mode, wordArray);
         self.postMessage(hash)
-    })
+    }
 
-    reader.readAsArrayBuffer(file);
 })
+
+function calculateHash(mode, data) {
+    let result = null;
+    switch (mode) {
+        case 'md5':
+            result = crypto.MD5(data).toString(crypto.enc.Hex);
+            break;
+        case 'sha1':
+            result = crypto.SHA1(data).toString(crypto.enc.Hex);
+            break;
+        case 'sha256':
+            result = crypto.SHA256(data).toString(crypto.enc.Hex);
+            break;
+        case 'sha512':
+            result = crypto.SHA512(data).toString(crypto.enc.Hex);
+            break;
+        default: 
+            break;
+    }
+
+    return result;
+}

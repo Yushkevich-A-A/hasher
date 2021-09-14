@@ -35,14 +35,14 @@ export default class DrawWidget {
               <div class="selected-mode">MD5</div>
             </div>
             <ul class="mode-list disable">
-              <li class="mode-item">MD5</li>
-              <li class="mode-item">SHA1</li>
-              <li class="mode-item">SHA256</li>
-              <li class="mode-item">SHA512</li>
+              <li data-mode="md5" class="mode-item">MD5</li>
+              <li data-mode="sha1" class="mode-item">SHA1</li>
+              <li data-mode="sha256" class="mode-item">SHA256</li>
+              <li data-mode="sha512" class="mode-item">SHA512</li>
             </ul>
           </div>
         </div>
-        <div class="block-calculated-hash">
+        <div class="block-hash">
           <h2 class="block-calculated-hash_title">
             Calculated Hash
           </h2>
@@ -56,9 +56,31 @@ export default class DrawWidget {
       this.modeList = this.wrapper.querySelector('.mode-list');
       this.inputFile = this.wrapper.querySelector('.input_file');
       this.fileWrapper = this.wrapper.querySelector('.file-wrapper');
+      this.selectedMode = this.wrapper.querySelector('.selected-mode');
     }
 
     drawHash(data) {
         this.blockCalculatedHashResult.textContent = data;
+    }
+
+    openModeList() {
+        this.modeList.classList.remove('disable');
+        this.modeList.style.left = this.selectedMode.offsetLeft + "px";
+    }
+
+    closeModeList() {
+        this.modeList.classList.add('disable');
+    }
+
+    selectionMode(data) {
+        this.selectedMode.textContent = data;
+    }
+
+    fileWrapperActivate() {
+      this.fileWrapper.classList.add('active');
+    }
+
+    fileWrapperDisactivate() {
+      this.fileWrapper.classList.remove('active');
     }
 }
