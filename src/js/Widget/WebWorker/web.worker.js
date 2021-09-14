@@ -20,9 +20,7 @@ self.addEventListener('message', (e) => {
 
     reader.addEventListener('load', () => {
       wordArray = crypto.lib.WordArray.create(reader.result);
-      console.log(wordArray);
       const hash = calculateHash(mode, wordArray);
-      console.log(hash);
       self.postMessage(hash);
     });
 

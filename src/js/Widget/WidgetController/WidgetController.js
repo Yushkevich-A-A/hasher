@@ -68,8 +68,6 @@ export default class WidgetController {
         return;
       }
 
-      this.decription(event.data);
-
       this.widget.drawHash(event.data);
     });
   }
