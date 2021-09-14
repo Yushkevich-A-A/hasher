@@ -1,20 +1,20 @@
 export default class DrawWidget {
-    constructor(element) {
-        this.element = element;
-        this.mode = 'MD5';
+  constructor(element) {
+    this.element = element;
+    this.mode = 'MD5';
 
-        this.defaultHashValue = 'XXXXXXXXXXXXXXXX';
-        this.init();
-    }
+    this.defaultHashValue = 'XXXXXXXXXXXXXXXX';
+    this.init();
+  }
 
-    init() {
-        this.drawWidget();
-    }
+  init() {
+    this.drawWidget();
+  }
 
-    drawWidget() {
-        this.wrapper = document.createElement('div');
-        this.wrapper.classList.add('widget-wrapper');
-        this.wrapper.innerHTML = `<div class="widget">
+  drawWidget() {
+    this.wrapper = document.createElement('div');
+    this.wrapper.classList.add('widget-wrapper');
+    this.wrapper.innerHTML = `<div class="widget">
         <div class="block-hasher">
           <div class="block-hasher-input">
             <h1 class="block-hasher_title">Hasher</h1>
@@ -49,38 +49,38 @@ export default class DrawWidget {
           <p class="block-calculated-hash-result"></p>
         </div>
       </div>`;
-      this.element.appendChild(this.wrapper);
-      this.blockCalculatedHashResult = this.wrapper.querySelector('.block-calculated-hash-result');
-      this.blockCalculatedHashResult.textContent = this.defaultHashValue;
+    this.element.appendChild(this.wrapper);
+    this.blockCalculatedHashResult = this.wrapper.querySelector('.block-calculated-hash-result');
+    this.blockCalculatedHashResult.textContent = this.defaultHashValue;
 
-      this.modeList = this.wrapper.querySelector('.mode-list');
-      this.inputFile = this.wrapper.querySelector('.input_file');
-      this.fileWrapper = this.wrapper.querySelector('.file-wrapper');
-      this.selectedMode = this.wrapper.querySelector('.selected-mode');
-    }
+    this.modeList = this.wrapper.querySelector('.mode-list');
+    this.inputFile = this.wrapper.querySelector('.input_file');
+    this.fileWrapper = this.wrapper.querySelector('.file-wrapper');
+    this.selectedMode = this.wrapper.querySelector('.selected-mode');
+  }
 
-    drawHash(data) {
-        this.blockCalculatedHashResult.textContent = data;
-    }
+  drawHash(data) {
+    this.blockCalculatedHashResult.textContent = data;
+  }
 
-    openModeList() {
-        this.modeList.classList.remove('disable');
-        this.modeList.style.left = this.selectedMode.offsetLeft + "px";
-    }
+  openModeList() {
+    this.modeList.classList.remove('disable');
+    this.modeList.style.left = `${this.selectedMode.offsetLeft}px`;
+  }
 
-    closeModeList() {
-        this.modeList.classList.add('disable');
-    }
+  closeModeList() {
+    this.modeList.classList.add('disable');
+  }
 
-    selectionMode(data) {
-        this.selectedMode.textContent = data;
-    }
+  selectionMode(data) {
+    this.selectedMode.textContent = data;
+  }
 
-    fileWrapperActivate() {
-      this.fileWrapper.classList.add('active');
-    }
+  fileWrapperActivate() {
+    this.fileWrapper.classList.add('active');
+  }
 
-    fileWrapperDisactivate() {
-      this.fileWrapper.classList.remove('active');
-    }
+  fileWrapperDisactivate() {
+    this.fileWrapper.classList.remove('active');
+  }
 }
